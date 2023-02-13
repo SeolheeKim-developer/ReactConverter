@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html >
+    
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js">
+</script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js">
+</script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<link rel="stylesheet" href="style.css"></link>
+<script type="text/babel">
+    function MinutesToHours() {
+        const [amount, setAmount] =React.useState(0)
+        const [inverted,setInverted] =React.useState(false);
+        const onChange =(event) =>{
+            setAmount(event.target.value);
+        };
+        const reset =() =>setAmount(0);
+        const onInvert =() =>{
+            reset();
+            setInverted((current)=>!current);
+        };
+        return (
+            <div className="card">
+            <div >
+            <label className="h2" htmlFor="minutes">Minutes</label>
+            <input 
+            value ={inverted ? amount*60 : amount} 
+            id="minutes" 
+            placeholder="Minutes" 
+            type="number"
+            onChange={onChange}
+            disabled={inverted}/> 
+            </div>
+        <div>
+            <label className="h2" htmlFor="hours">Hours</label>
+            <input 
+            value = {inverted ? amount : Math.round(amount /60)}  
+            id="hours" 
+            placeholder="Hours" 
+            type="number"
+            disabled={!inverted}
+            onChange={onChange}/>
+        </div>
+        <div>
+        <button onClick={reset}>Reset</button>
+        <button onClick={onInvert}>{inverted ? "Turn back" : "Invert"}</button>
+        </div>
+        </div>
+        );
+    }
+    function KmToMiles(){
+        const [amount, setAmount] =React.useState(0)
+        const [inverted,setInverted] =React.useState(false);
+        const onChange =(event) =>{
+            setAmount(event.target.value);
+        };
+        const reset =() =>setAmount(0);
+        const onInvert =() =>{
+            reset();
+            setInverted((current)=>!current);
+        };
+        return (
+            <div className="card">
+                <div>
+                <label className="h2" htmlFor="miles">Miles</label>
+                <input 
+                value ={inverted ? (amount/1.609).toFixed(2) : amount} 
+                id="miles" 
+                placeholder="Miles" 
+                type="number"
+                onChange={onChange}
+                disabled={inverted}/> 
+                </div>
+                <div>
+                <label className="h2" htmlFor="km">KM</label>
+                <input 
+                value = {inverted ? amount :(amount *1.609).toFixed(2)}  
+                id="km" 
+                placeholder="KM" 
+                type="number"
+                disabled={!inverted}
+                onChange={onChange}/>
+                </div>
+                <div>
+                <button onClick={reset}>Reset</button>
+                <button onClick={onInvert}>{inverted ? "Turn back" : "Invert"}</button>
+            </div>
+                </div>
+        )
+    }
+    function FahrenheitToCelsius(){
+        const [amount, setAmount] =React.useState(0)
+        const [inverted,setInverted] =React.useState(false);
+        const onChange =(event) =>{
+            setAmount(event.target.value);
+        };
+        const reset =() =>setAmount(0);
+        const onInvert =() =>{
+            reset();
+            setInverted((current)=>!current);
+        };
+        return (
+            <div className="card">
+                <div>
+                <label className="h2" htmlFor="fahrenheit">Fahrenheit</label>
+                <input 
+                value ={inverted ? ((amount*1.8)+32).toFixed(1) : amount} 
+                id="fahrenheit" 
+                placeholder="Fahrenheit" 
+                type="number"
+                onChange={onChange}
+                disabled={inverted}/> 
+                </div>
+                <div>
+                <label className="h2" htmlFor="celsius">Celsius</label>
+                <input 
+                value = {inverted ? amount :((amount-32)*(5/9)).toFixed(1)}  
+                id="celsius" 
+                placeholder="Celsius" 
+                type="number"
+                disabled={!inverted}
+                onChange={onChange}/>
+                </div>
+                <div>
+                <button onClick={reset}>Reset</button>
+                <button onClick={onInvert}>{inverted ? "Turn back" : "Invert"}</button>
+                </div>
+            </div>
+        )
+    }
+    
+    function FeetToCm(){
+        const [amount, setAmount] =React.useState(0)
+        const [inverted,setInverted] =React.useState(false);
+        const onChange =(event) =>{
+            setAmount(event.target.value);
+        };
+        const reset =() =>setAmount(0);
+        const onInvert =() =>{
+            reset();
+            setInverted((current)=>!current);
+        };
+        return (
+            <div className="card">
+                <div>
+                <label className="h2" htmlFor="foot">Foot</label>
+                <input 
+                value ={inverted ? (amount/30.48).toFixed(2) : amount} 
+                id="foot" 
+                placeholder="Foot" 
+                type="number"
+                onChange={onChange}
+                disabled={inverted}/> 
+                </div>
+                <div>
+                <label className="h2" htmlFor="cm">Cm</label>
+                <input 
+                value = {inverted ? amount :(amount*30.48).toFixed(2)}  
+                id="cm" 
+                placeholder="Cm" 
+                type="number"
+                disabled={!inverted}
+                onChange={onChange}/>
+                </div>
+                <div>
+                <button onClick={reset}>Reset</button>
+                <button onClick={onInvert}>{inverted ? "Turn back" : "Invert"}</button>
+                </div>
+            </div>
+        )
+    }
+    
+    function PoundToKilogram(){
+        const [amount, setAmount] =React.useState(0)
+        const [inverted,setInverted] =React.useState(false);
+        const onChange =(event) =>{
+            setAmount(event.target.value);
+        };
+        const reset =() =>setAmount(0);
+        const onInvert =() =>{
+            reset();
+            setInverted((current)=>!current);
+        };
+        return (
+            <div className="card">
+                <div>
+                <label className="h2" htmlFor="pound">Pound</label>
+                <input 
+                value ={inverted ? (amount*2.205).toFixed(1) : amount} 
+                id="pound" 
+                placeholder="Pound" 
+                type="number"
+                onChange={onChange}
+                disabled={inverted}/> 
+                </div>
+                <div>
+                <label className="h2" htmlFor="kilogram">Kilogram</label>
+                <input 
+                value = {inverted ? amount :(amount/2.205).toFixed(1)}  
+                id="kilogram" 
+                placeholder="Kilogram" 
+                type="number"
+                disabled={!inverted}
+                onChange={onChange}/>
+                </div>
+                <div>
+                <button onClick={reset}>Reset</button>
+                <button onClick={onInvert}>{inverted ? "Turn back" : "Invert"}</button>
+                </div>
+            </div>
+        )
+    }
+    
+    function App() {
+        const [index, setIndex] = React.useState("xx");
+        const onSelect =(event) =>{
+            setIndex(event.target.value);
+        }
+        return (
+            <div className="container">
+                <h1 className="title">Super Converter</h1>
+                <select className="custom-select" value={index} onChange={onSelect}>
+                    <option value="xx">Select you units</option>
+                    <option value="0">Minutes & Hours</option>
+                    <option value="1">Km & Miles</option>
+                    <option value="2">Fahrenheit & Celsius</option>
+                    <option value="3">Feet & Cm</option>
+                    <option value="4">Pounds & Kilograms</option>
+                </select>
+                <hr />
+                {index === "xx" ? "Please select your units" : null}
+                {index === "0" ? <MinutesToHours /> : null}
+                {index === "1" ? <KmToMiles /> : null}
+                {index === "2" ? <FahrenheitToCelsius /> : null}
+                {index === "3" ? <FeetToCm /> : null}
+                {index === "4" ? <PoundToKilogram /> : null}
+            </div>
+        );
+        }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+</script>
+</html>
